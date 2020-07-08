@@ -6,12 +6,12 @@ The S band flowgraph is copied (will be adapted eventually) from the K2Sat Softw
 - Changes to Input source 
 - Output packets to CSP/ZMQ
 
-*You must have gr-satellites installed for these to run.* See its [documentation](gr-satellites.readthedocs.io/en/latest/installation.html) for instructions on installation.
+*You must have gr-satellites installed for these to run.* See its [documentation](https://gr-satellites.readthedocs.io/en/latest/installation.html) for instructions on installation.
 
 The UHF Software Defined Radio will also likely use some blocks provided by gr-satellites.
 
 ## Example Decoding
-Open up the [image receiver](ex2_image_receiver.grc) flowgraph in the GNU Radio Companion and modify the paths for the [sample input](drive.google.com/file/d/1K6GL-I2AjZtcWA-4pOFsTMeyn3PUM74F/view) in the File Source block and the output path in the File Receiver block. Run the flowgraph. Then open the terminal, navigate to this repo's directory, and run:
+Open up the [image receiver](apps/ex2_image_receiver.grc) flowgraph in the GNU Radio Companion and modify the paths for the [sample input](https://drive.google.com/file/d/1K6QL-l2AjZtcWA-4pOFsTMeyn3PUM74F/view) in the File Source block and the output path in the File Receiver block. Run the flowgraph. Then open the terminal, navigate to this repo's directory, and run:
 ```
 ./ex2_image_receiver.py
 ```
