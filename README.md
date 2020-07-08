@@ -1,7 +1,7 @@
 # Software Defined Radio for Ex-Alta 2
 This repo contains GNU Radio flowgraphs for receiving/transmitting packets from the UHF transceiver, as well as receiving packets from the S band transmitter
 
-The S band flowgraph is copied (will be adapted eventually) from the K2Sat Software Defined Radio (SDR) developed by Daniel Estévez and the K2Sat team which used a very similar ClydeSpace S band transmitter for image downlink, contained in the [gr-satellites project](https://github.com/daniestevez/gr-satellites). Changes to be made include: 
+The S band flowgraph is adapted from the K2Sat Software Defined Radio (SDR) developed by Daniel Estévez and the K2Sat team which used a very similar ClydeSpace S band transmitter for image downlink, contained in the [gr-satellites project](https://github.com/daniestevez/gr-satellites). Changes to be made include: 
 - Modifying data rate to 10 Mbps 
 - Changes to Input source 
 - Output packets to CSP/ZMQ
