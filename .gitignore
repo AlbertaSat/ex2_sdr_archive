@@ -2,3 +2,8 @@
 samples/
 
 build*
+
+# ignore Eclipse stuff
+.cproject
+.project
+.settings
