@@ -23,5 +23,7 @@
 install(FILES
     api.h
     my_header.h
-    uhf_header.h DESTINATION include/albertasat
+    uhf_header.h
+    CRC16_uhf_header.h
+    CRC16_uhf_header.h DESTINATION include/albertasat
 )

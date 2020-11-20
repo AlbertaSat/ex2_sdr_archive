@@ -14,6 +14,8 @@
 #include "gnuradio/digital/packet_header_default.h"
 #include "albertasat/my_header.h"
 #include "albertasat/uhf_header.h"
+#include "albertasat/CRC16_uhf_header.h"
+#include "albertasat/CRC16_uhf_header.h"
 %}
 
 %include "gnuradio/digital/packet_header_default.h"
@@ -23,3 +25,7 @@
 // Properly package up non-block objects
 %include "my_header.i"
 %include "uhf_header.i"
+%include "albertasat/CRC16_uhf_header.h"
+GR_SWIG_BLOCK_MAGIC2(albertasat, CRC16_uhf_header);
+%include "albertasat/CRC16_uhf_header.h"
+GR_SWIG_BLOCK_MAGIC2(albertasat, CRC16_uhf_header);
