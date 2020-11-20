@@ -1,17 +1,17 @@
 /* -*- c++ -*- */
-/* 
+/*
  * Copyright 2020 <+YOU OR YOUR COMPANY+>.
- * 
+ *
  * This is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 3, or (at your option)
  * any later version.
- * 
+ *
  * This software is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this software; see the file COPYING.  If not, write to
  * the Free Software Foundation, Inc., 51 Franklin Street,
@@ -25,6 +25,9 @@
 #include <string.h>
 
 #include <gnuradio/io_signature.h>
+#include <boost/crc.hpp>      // For CRC function
+#include <iostream>   // for std::cout
+#include <ostream>    // for std::endl
 #include <albertasat/uhf_header.h>
 
 #define UHF_HEADER_DEBUG 1
@@ -108,6 +111,9 @@ namespace gr {
         for (int i = 0; i < sizeof(default_header) / sizeof(default_header[0]); i++) {
           printf("0x%02X ",out[i]);
         }
+       boost::crc_ccitt_type result;
+       result.process_bytes(default_header, sizeof(default_header) / sizeof(default_header[0])); // process the specified number of bytes in the input
+       std::cout << "CRC16 Result= " << std::hex << result.checksum() << std::endl; // output result in hex form
         printf("\n");
       }
 
@@ -126,4 +132,3 @@ namespace gr {
 
   } /* namespace albertasat */
 } /* namespace gr */
-
