@@ -23,5 +23,7 @@
 install(FILES
     api.h
     my_header.h
-    uhf_header.h DESTINATION include/albertasat
+    uhf_header.h
+    CRC16_Block.h
+    my_qpsk_demod_cb.h DESTINATION include/albertasat
 )

@@ -26,7 +26,9 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 list(APPEND albertasat_sources
     my_header.cc
-    uhf_header.cc )
+    uhf_header.cc
+    CRC16_Block_impl.cc
+    my_qpsk_demod_cb_impl.cc )
 
 set(albertasat_sources "${albertasat_sources}" PARENT_SCOPE)
 if(NOT albertasat_sources)
@@ -59,6 +61,7 @@ include_directories(${CPPUNIT_INCLUDE_DIRS})
 list(APPEND test_albertasat_sources
     ${CMAKE_CURRENT_SOURCE_DIR}/test_albertasat.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_albertasat.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_CRC16_Block.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_uhf_header.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/qa_my_header.cc
 )

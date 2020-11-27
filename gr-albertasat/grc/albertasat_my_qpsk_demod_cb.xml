@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<block>
+  <name>my_qpsk_demod_cb</name>
+  <key>albertasat_my_qpsk_demod_cb</key>
+  <category>[albertasat]</category>
+  <import>import albertasat</import>
+  <make>albertasat.my_qpsk_demod_cb($gray_code)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+       <param>
+         <name>Gray Code</name>
+         <key>gray_code</key>
+         <value>True</value>
+         <type>bool</type>
+         <option>
+           <name>Yes</name>
+           <key>True</key>
+         </option>
+         <option>
+           <name>No</name>
+           <key>False</key>
+         </option>
+       </param>
+       <sink>
+         <name>in</name>
+         <type>complex</type>
+       </sink>
+       <source>
+         <name>out</name>
+         <type>byte</type>
+       </source>
+     </block>

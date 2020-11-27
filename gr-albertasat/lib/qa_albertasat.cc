@@ -28,6 +28,7 @@
 #include "qa_albertasat.h"
 #include "qa_my_header.h"
 #include "qa_uhf_header.h"
+#include "qa_CRC16_Block.h"
 
 CppUnit::TestSuite *
 qa_albertasat::suite()
@@ -35,6 +36,7 @@ qa_albertasat::suite()
   CppUnit::TestSuite *s = new CppUnit::TestSuite("albertasat");
   s->addTest(gr::albertasat::qa_my_header::suite());
   s->addTest(gr::albertasat::qa_uhf_header::suite());
+  s->addTest(gr::albertasat::qa_CRC16_Block::suite());
 
   return s;
 }
