@@ -2,18 +2,19 @@
 <block>
   <name>CRC16_Block</name>
   <key>albertasat_CRC16_Block</key>
-  <category>[albertasat]</category>
+  <category>Albertasat</category>
   <import>import albertasat</import>
-  <make>albertasat.CRC16_Block()</make>
+  <make>albertasat.CRC16_Block($len_tag_key)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
        * key (makes the value accessible as $keyname, e.g. in the make node)
        * type -->
   <param>
-    <name>len_tag_key</name>
+    <name>Length Tag Key name</name>
     <key>len_tag_key</key>
-    <type>const std::string</type>
+    <value>'packet_len'</value>
+    <type>string</type>
   </param>
 
   <!-- Make one 'sink' node per input. Sub-nodes:
@@ -23,7 +24,7 @@
        * optional (set to 1 for optional inputs) -->
   <sink>
     <name>in</name>
-    <type>char</type>
+    <type>byte</type>
   </sink>
 
   <!-- Make one 'source' node per output. Sub-nodes:
@@ -33,6 +34,6 @@
        * optional (set to 1 for optional inputs) -->
   <source>
     <name>out</name>
-    <type>char</type>
+    <type>byte</type>
   </source>
 </block>

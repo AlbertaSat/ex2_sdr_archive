@@ -72,13 +72,16 @@ namespace gr {
       const unsigned char* in = (const unsigned char*)input_items[0];
       unsigned char* out = (unsigned char*)output_items[0];
       size_t packet_length = ninput_items[0];
+      uint16_t crc;
+
       // specify result here
       boost::crc_ccitt_type result;
-      result.process_bytes(crc16_Input, 6); // process the specified number of bytes in the input
-      std::cout << "CRC16 Result is = " << std::hex << result.checksum() << std::endl; // output result in hex form
+      result.process_bytes(in, 6); // process the specified number of bytes in the input
+      crc = result.checksum();
+      std::cout << "CRC16 Result is = " << std::hex << crc << std::endl; // output result in hex form
       printf("\n");
-      memcpy((void*)out, (const void*)in, packet_length)
-      memcpy((void*)(out + packet_length),&result.checksum, 2)        
+      memcpy((void*)out, (const void*)in, packet_length);
+      memcpy((void*)(out + packet_length),&crc, 2);
       // Do <+signal processing+>
 
       // Tell runtime system how many output items we produced.
