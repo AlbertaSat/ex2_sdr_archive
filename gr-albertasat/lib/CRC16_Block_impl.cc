@@ -25,11 +25,11 @@
  #include <string.h>
 
  #include <gnuradio/io_signature.h>
- #include <boost/crc.hpp>      // For CRC function
+ #include <boost/crc.hpp>      // For CRC16 calc function
  #include <iostream>   // for std::cout
  #include <ostream>    // for std::endl
 #include "CRC16_Block_impl.h"
-
+#define DF_1_index 6 //data field 1 index from endurosat manual
 namespace gr {
   namespace albertasat {
 
@@ -47,7 +47,9 @@ namespace gr {
       : gr::tagged_stream_block("CRC16_Block",
               gr::io_signature::make(1, 1, sizeof(char)),
               gr::io_signature::make(1, 1, sizeof(char)), len_tag_key)
-    {}
+    {
+      set_tag_propagation_policy(TPP_DONT); // we define tag progagation manually
+    }
 
     /*
      * Our virtual destructor.
@@ -57,7 +59,7 @@ namespace gr {
     }
 
     int
-    CRC16_Block_impl::calculate_output_stream_length(const gr_vector_int &ninput_items)
+    CRC16_Block_impl::calculate_output_stream_length(const gr_vector_int &ninput_items) //calculate how large we want the output data buffer to be
     {
       int noutput_items = ninput_items[0] + 2;
       return noutput_items ;
@@ -69,23 +71,34 @@ namespace gr {
                        gr_vector_const_void_star &input_items,
                        gr_vector_void_star &output_items)
     {
-      const unsigned char* in = (const unsigned char*)input_items[0];
-      unsigned char* out = (unsigned char*)output_items[0];
+      const unsigned char* in = (const unsigned char*)input_items[0]; //get pointer to where input data is held
+      unsigned char* out = (unsigned char*)output_items[0]; // get pointer to where output data is to be stored
       size_t packet_length = ninput_items[0];
-      uint16_t crc;
+      uint16_t crc; //used to store CRC result
 
       // specify result here
       boost::crc_ccitt_type result;
-      result.process_bytes(in, 6); // process the specified number of bytes in the input
+      result.process_bytes(in, packet_length); // CRC is only calculated for data fields 1 and 2
       crc = result.checksum();
-      std::cout << "CRC16 Result is = " << std::hex << crc << std::endl; // output result in hex form
+      std::cout << "\n CRC16 Result is = " << std::hex << crc << std::endl; // output result in hex form for debugging
       printf("\n");
+
+      //printf("little endian CRC is: %X", crc);
+      crc = (crc>>8) | (crc<<8); // converting little endian to big endian
+      //printf("big endian CRC is: %X", crc);
       memcpy((void*)out, (const void*)in, packet_length);
       memcpy((void*)(out + packet_length),&crc, 2);
-      // Do <+signal processing+>
 
+      // Do <+signal processing+>
+      std::vector<tag_t> tags;
+      get_tags_in_range(tags, 0, nitems_read(0), nitems_read(0) + packet_length);
+      for (size_t i = 0; i < tags.size(); i++) {
+      tags[i].offset -= nitems_read(0);
+      add_item_tag(0, nitems_written(0) + tags[i].offset, tags[i].key, tags[i].value);
+      }
       // Tell runtime system how many output items we produced.
-      return noutput_items;
+      //return noutput_items;
+      return packet_length + 2; //return length of new packet
     }
 
   } /* namespace albertasat */
