@@ -61,7 +61,7 @@ namespace gr {
     int
     CRC16_Block_impl::calculate_output_stream_length(const gr_vector_int &ninput_items) //calculate how large we want the output data buffer to be
     {
-      int noutput_items = ninput_items[0] + 2;
+      int noutput_items = ninput_items[0] + 2; // make room for the 2 extra CRC16 bytes
       return noutput_items ;
     }
 
@@ -78,7 +78,7 @@ namespace gr {
 
       // specify result here
       boost::crc_ccitt_type result;
-      result.process_bytes(in, packet_length); // CRC is only calculated for data fields 1 and 2
+      result.process_bytes(in, packet_length); // CRC is only calculated for data fields 1 and 2. I just realized this calculates the CRC16 for the entire packet. I NEED TO FIX THIS
       crc = result.checksum();
       std::cout << "\n CRC16 Result is = " << std::hex << crc << std::endl; // output result in hex form for debugging
       printf("\n");
@@ -86,12 +86,12 @@ namespace gr {
       //printf("little endian CRC is: %X", crc);
       crc = (crc>>8) | (crc<<8); // converting little endian to big endian
       //printf("big endian CRC is: %X", crc);
-      memcpy((void*)out, (const void*)in, packet_length);
+      memcpy((void*)out, (const void*)in, packet_length); // copy the result to the output buffer
       memcpy((void*)(out + packet_length),&crc, 2);
 
-      // Do <+signal processing+>
+      // handling tag propagation
       std::vector<tag_t> tags;
-      get_tags_in_range(tags, 0, nitems_read(0), nitems_read(0) + packet_length);
+      get_tags_in_range(tags, 0, nitems_read(0), nitems_read(0) + packet_length); //nitems_read(0) is the number of items read on input channel #0
       for (size_t i = 0; i < tags.size(); i++) {
       tags[i].offset -= nitems_read(0);
       add_item_tag(0, nitems_written(0) + tags[i].offset, tags[i].key, tags[i].value);

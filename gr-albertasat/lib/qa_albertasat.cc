@@ -29,6 +29,7 @@
 #include "qa_my_header.h"
 #include "qa_uhf_header.h"
 #include "qa_CRC16_Block.h"
+#include "qa_detect_packet_bb.h"
 
 CppUnit::TestSuite *
 qa_albertasat::suite()
@@ -37,6 +38,7 @@ qa_albertasat::suite()
   s->addTest(gr::albertasat::qa_my_header::suite());
   s->addTest(gr::albertasat::qa_uhf_header::suite());
   s->addTest(gr::albertasat::qa_CRC16_Block::suite());
+  s->addTest(gr::albertasat::qa_detect_packet_bb::suite());
 
   return s;
 }
