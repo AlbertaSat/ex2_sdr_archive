@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_6ce1d64e59f0af061062bb313f2a8c80" kind="dir">
+    <compoundname>albertasat</compoundname>
+    <innerfile refid="api_8h">api.h</innerfile>
+    <innerfile refid="my__header_8h">my_header.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/dineth/Development/ex2_sdr/gr-albertasat/include/albertasat/"/>
+  </compounddef>
+</doxygen>

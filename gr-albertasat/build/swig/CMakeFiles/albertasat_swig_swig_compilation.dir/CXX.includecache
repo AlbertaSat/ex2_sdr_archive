@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat_swig.i
+gnuradio.i
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/gnuradio.i
+albertasat_swig_doc.i
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat_swig_doc.i
+albertasat/my_header.h
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat/my_header.h
+albertasat/uhf_header.h
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat/uhf_header.h
+albertasat/my_header.h
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat/my_header.h
+my_header.i
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/my_header.i
+albertasat/uhf_header.h
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/albertasat/uhf_header.h
+uhf_header.i
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/uhf_header.i
+
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/my_header.i
+
+/home/dineth/Development/ex2_sdr/gr-albertasat/swig/uhf_header.i
+

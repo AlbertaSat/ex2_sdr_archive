@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="my__header_8h" kind="file" language="C++">
+    <compoundname>my_header.h</compoundname>
+    <includes refid="api_8h" local="no">albertasat/api.h</includes>
+    <includes local="no">boost/enable_shared_from_this.hpp</includes>
+    <incdepgraph>
+      <node id="9">
+        <label>albertasat/api.h</label>
+        <link refid="api_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>gnuradio/attributes.h</label>
+      </node>
+      <node id="11">
+        <label>boost/enable_shared_from_this.hpp</label>
+      </node>
+      <node id="8">
+        <label>my_header.h</label>
+        <link refid="my__header_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classgr_1_1albertasat_1_1my__header" prot="public">gr::albertasat::my_header</innerclass>
+    <innernamespace refid="namespacegr">gr</innernamespace>
+    <innernamespace refid="namespacegr_1_1albertasat">gr::albertasat</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/dineth/Development/ex2_sdr/gr-albertasat/include/albertasat/my_header.h"/>
+  </compounddef>
+</doxygen>
