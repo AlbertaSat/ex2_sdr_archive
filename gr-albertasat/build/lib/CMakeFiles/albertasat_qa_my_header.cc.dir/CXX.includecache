@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../lib/../include/albertasat/api.h
+gnuradio/attributes.h
+-
+
+../lib/../include/albertasat/my_header.h
+albertasat/api.h
+-
+boost/enable_shared_from_this.hpp
+-
+
+/home/dineth/ex2_sdr/gr-albertasat/lib/qa_my_header.cc
+config.h
+-
+albertasat/my_header.h
+-
+gnuradio/attributes.h
+-
+boost/test/unit_test.hpp
+-
+
+/usr/local/include/gnuradio/attributes.h
+
