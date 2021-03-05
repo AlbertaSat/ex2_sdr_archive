@@ -1,0 +1,8 @@
+To run the gfsk_tx_rx_test.grc in gnuradio-companion:
+
+1) open gfsk_tx_rx_test.grc
+2) Make sure the File Source block file path is set to g.bin
+2a) g.bin is just 16 bytes with values [0,15]
+3) Run the model. The output g_out.bin will be in the same directory as gfsk_tx_rx_test.grc
+4) To view the results, open Octave and run the script gfsk_tx_rx_output_display.m
+

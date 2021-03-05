@@ -1,0 +1,1 @@
+# gfsk tx-rx file read and displaybfile = fopen('g_out.bin');rx_data = fread(bfile, 'float');plot(rx_data);

@@ -1,3 +1,4 @@
+examples/**/*.py
 gr-*/examples/**/*.py
 samples/
 
