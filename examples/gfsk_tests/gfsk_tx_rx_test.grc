@@ -121,7 +121,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/knud/g.bin
+    file: /home/knud/Development/ex2_sdr/examples/gfsk_tests/g.bin
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
